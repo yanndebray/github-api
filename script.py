@@ -81,6 +81,18 @@ print("Latest run workflow id:", latest_run.workflow_id)
 print("Latest run workflow url:", latest_run.workflow_url)
 print("Latest run html url:", latest_run.html_url)
 
+#%% Get a workflow based on its yml file
+repo = g.get_repo("yanndebray/programming-GPTs")
+workflow = repo.get_workflow("podcast.yml")
+print("Workflow name:", workflow.name)
+#%% Get the artifacts for a workflow run
+workflow_run = workflow.get_runs().get_page(0)[1]
+artifacts = workflow_run.get_artifacts()
+print(f"Workflow run {workflow_run.run_number} ({workflow_run.id}) has {len(list(artifacts))} artifacts.")
+for artifact in artifacts:
+    print("Artifact name:", artifact.name)
+    print("Artifact size in bytes:", artifact.size_in_bytes)
+    print("Artifact URL:", artifact.archive_download_url)
 #%% private API
 load_dotenv()
 token = os.getenv("GITHUB_API_TOKEN")
