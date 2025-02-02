@@ -4,6 +4,12 @@ Use Python to interact with the GitHub API.
 
 `pip install PyGithub`
 
+## Timeline
+
+Using the GraphQL API as the REST/Python API only goes back 90 days.
+
+![timeline](img/timeline.png)
+
 ## PyGitHub
 
 ```python

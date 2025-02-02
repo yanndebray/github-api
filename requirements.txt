@@ -4,3 +4,4 @@ requests
 ipykernel
 matplotlib
 numpy
+pandas
