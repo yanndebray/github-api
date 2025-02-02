@@ -2,3 +2,5 @@ PyGithub
 python-dotenv 
 requests
 ipykernel
+matplotlib
+numpy
