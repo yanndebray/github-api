@@ -1,4 +1,4 @@
-# GitHub API 
+# GitHub API 🐙
 
 Use Python to interact with the GitHub API.
 
@@ -15,6 +15,10 @@ print(f"Repo {repo.name} has {len(list(commits))} commits")
 for commit in commits:
     print(commit.commit.message)
 ```
+
+## GitHub Actions / Workflows
+
+![action/workflows](img/action.png)
 
 ## Resources
 

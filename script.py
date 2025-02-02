@@ -1,6 +1,5 @@
 #%%
 import os
-import requests
 from github import Github
 from dotenv import load_dotenv
 #%% public API
@@ -58,6 +57,30 @@ commits = repo.get_commits()
 print(f"Repo {repo.name} has {len(list(commits))} commits")
 for commit in commits:
     print(commit.commit.message)
+#%% Get GitHub actions/workflows for a repo
+# Get all workflows for the repository
+workflows = repo.get_workflows()
+print(f"Repo {repo.name} has {workflows.totalCount} workflows.")
+
+for workflow in workflows:
+    print("Workflow name:", workflow.name)
+    print("Workflow path:", workflow.path)
+
+#%% Get the latest run for a workflow
+latest_run = workflows[1].get_runs().get_page(0)[0]
+print("Latest run id:", latest_run.id)
+print("Latest run status:", latest_run.status)
+print("Latest run conclusion:", latest_run.conclusion)
+print("Latest run created at:", latest_run.created_at)
+print("Latest run updated at:", latest_run.updated_at)
+print("Latest run duration:", latest_run.updated_at - latest_run.created_at)
+print("Latest run head sha:", latest_run.head_sha)
+print("Latest run run number:", latest_run.run_number)
+print("Latest run event:", latest_run.event)
+print("Latest run workflow id:", latest_run.workflow_id)
+print("Latest run workflow url:", latest_run.workflow_url)
+print("Latest run html url:", latest_run.html_url)
+
 #%% private API
 load_dotenv()
 token = os.getenv("GITHUB_API_TOKEN")
