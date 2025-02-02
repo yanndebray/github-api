@@ -18,7 +18,11 @@ for commit in commits:
 
 ## GitHub Actions / Workflows
 
-![action/workflows](img/action.png)
+page build and deployment
+![dynamic workflows](img/action.png)
+
+daily tech podcast
+![scheduled workflows](img/action2.png)
 
 ## Resources
 
