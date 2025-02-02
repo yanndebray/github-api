@@ -1,9 +1,16 @@
-#%%
-import os
+#%% public GitHub API 🐙
 from github import Github
-from dotenv import load_dotenv
-#%% public API
 g = Github()
+# #%% private GitHub API 🐙
+# from dotenv import load_dotenv
+# import os
+# load_dotenv()
+# token = os.getenv("GITHUB_API_TOKEN")
+# if token is None:
+#     raise ValueError("GITHUB_API_TOKEN not set in environment or .env file")
+# #%%
+# # Authenticate with GitHub
+# g = Github(token)
 #%% Get public repos for a user
 username = "yanndebray"
 user = g.get_user(username)
@@ -93,11 +100,3 @@ for artifact in artifacts:
     print("Artifact name:", artifact.name)
     print("Artifact size in bytes:", artifact.size_in_bytes)
     print("Artifact URL:", artifact.archive_download_url)
-#%% private API
-load_dotenv()
-token = os.getenv("GITHUB_API_TOKEN")
-if token is None:
-    raise ValueError("GITHUB_API_TOKEN not set in environment or .env file")
-#%%
-# Authenticate with GitHub
-g = Github(token)
